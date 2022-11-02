@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/uts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UTS"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORMULIR PENDAFTARAN"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/uts"
+        />
+
+    <EditText
+        android:id="@+id/et_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_judul"
+        android:hint="NamaLengkap"
+        android:textStyle="bold"
+        android:inputType="text"
+        />
+    <EditText
+        android:id="@+id/et_nomorpendaftaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="NomorPendaftaran"
+        android:textStyle="bold"
+        android:inputType="number"
+        android:layout_below="@id/et_nama"
+        />
+    <TextView
+        android:id="@+id/tv_informasipendaftaran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Informasi Pendaftaran Dari: "
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_below="@id/et_nomorpendaftaran"
+    />
+    <CheckBox
+        android:id="@+id/cb_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Facebook"
+        android:layout_below="@id/tv_informasipendaftaran"
+
+        />
+    <CheckBox
+        android:id="@+id/cb_Instagram"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Instagram"
+        android:layout_below="@id/cb_facebook"
+        />
+    <CheckBox
+        android:id="@+id/cb_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Website"
+        android:layout_below="@id/cb_Instagram"
+        />
+
+    <Button
+        android:id="@+id/btn_daftar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DAFTAR"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/cb_website"
+
+
+        />
+</RelativeLayout>
