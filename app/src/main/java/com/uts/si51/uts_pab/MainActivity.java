@@ -55,43 +55,37 @@ public class MainActivity extends AppCompatActivity {
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId()){
-                    case R.id.cb_facebook:
-                        if (cbFacebook.isChecked())
-                            Toast.makeText(getApplicationContext(), "Facebook", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.cb_Instagram:
-                        if(cbInstagram.isChecked())
-                            Toast.makeText(getApplicationContext(), "Instagram", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.cb_website:
-                        if (cbWebsite.isChecked())
-                            Toast.makeText(getApplicationContext(), "Website", Toast.LENGTH_SHORT).show();
+
+                String nama, nomor;
+                String facebook, instagram, website;
+
+                nama = etNama.getText().toString();
+                nomor = etNomor.getText().toString();
+                facebook = cbFacebook.getText().toString();
+                instagram = cbInstagram.getText().toString();
+                website = cbWebsite.getText().toString();
+
+                if (nama.trim().equals("")) {
+                    etNama.setError("Nama Tidak Boleh Kosong !");
+
+                } else if (nomor.trim().equals("")) {
+                    etNomor.setError("Nomor Pendaftaran Tidak Boleh Kosong !");
+
+                } else if (!cbFacebook.isChecked() && !cbInstagram.isChecked() && !cbWebsite.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "Tidak ada sosial media yang dipilih !", Toast.LENGTH_SHORT).show();
                 }
-
-                String namaLengkap = etNama.getText().toString();
-                String nomorPendaftaran = etNomor.getText().toString();
-                String informasiPendaftaran = tvInformasi.getText().toString();
-
-                if (namaLengkap.trim().equals("")){
-                    etNama.setError("Nama Di isi Terlebih Dahulu !");
-                }
-
-                else if (nomorPendaftaran.trim().equals("")){
-                    etNomor.setError("Nomor Di isi Terlebih Dahulu !");
-                }
-
-                else if (informasiPendaftaran.trim().equals("Informasi Pendaftaran Dari :")) {
-                    tvInformasi.getText().toString();
-                }
-
                 else {
-                    Intent pindah = new Intent(MainActivity.this, ResultActivity.class);
-                    pindah.putExtra("NamaLengkap",namaLengkap);
-                    pindah.putExtra("NomorPendaftaran",nomorPendaftaran);
-                    startActivity(pindah);
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    intent.putExtra("varNama", nama);
+                    intent.putExtra("varNomor", nomor);
+                    intent.putExtra("varFb", facebook);
+                    intent.putExtra("varIg", instagram);
+                    intent.putExtra("varWeb", website);
+                    startActivity(intent);
                 }
+
             }
         });
+
     }
 }
